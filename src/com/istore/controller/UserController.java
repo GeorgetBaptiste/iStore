@@ -6,6 +6,7 @@ import com.istore.model.User;
 import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Objects;
 
 public class UserController {
 
@@ -17,11 +18,13 @@ public class UserController {
 
     public boolean checkRegistration(String email) throws SQLException {
         ResultSet result = model.selectByEmail(email);
-        if (result.next()) {
-            return false;
-        } else {
-            return true;
-        }
+        return !result.next();
+    }
+
+    public boolean checkConnection(String email, char[] password) throws SQLException, NoSuchAlgorithmException {
+        ResultSet result = model.selectByEmail(email);
+        String hashPassword = new HashPassword(password).getHashPassword();
+        return result.next() && Objects.equals(result.getString("password"), hashPassword);
     }
 
     public void addRegistration(String email, String pseudo, char[] password) throws SQLException, NoSuchAlgorithmException {

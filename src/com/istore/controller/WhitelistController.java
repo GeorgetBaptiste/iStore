@@ -14,10 +14,6 @@ public class WhitelistController {
 
     public boolean checkRegistration(String email) throws SQLException {
         ResultSet result = model.selectByEmail(email);
-        if (result.next()) {
-            return true;
-        } else {
-            return false;
-        }
+        return result.next();
     }
 }
