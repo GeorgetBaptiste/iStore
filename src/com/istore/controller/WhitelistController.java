@@ -1,14 +1,18 @@
 package com.istore.controller;
 
-import com.istore.model.AbstractModel;
+import com.istore.model.WhiteList;
 
-public class WhitelistController extends AbstractController{
+import java.sql.SQLException;
 
-    public WhitelistController(AbstractModel model) {
-        super(model);
+public class WhitelistController {
+
+    private final WhiteList model;
+
+    public WhitelistController(WhiteList model) {
+        this.model = model;
     }
 
-    public void add() {
-        System.out.println("ok");
+    public void add() throws SQLException {
+        model.insert("test@test.com");
     }
 }

@@ -1,10 +1,9 @@
 package com.istore.controller;
 
-import com.istore.model.AbstractModel;
+import com.istore.model.Inventory;
 
-public class InventoryController extends AbstractController{
+public class InventoryController {
 
-    public InventoryController(AbstractModel model) {
-        super(model);
+    public InventoryController(Inventory model) {
     }
 }

@@ -1,10 +1,9 @@
 package com.istore.controller;
 
-import com.istore.model.AbstractModel;
+import com.istore.model.Article;
 
-public class ArticleController extends AbstractController{
+public class ArticleController {
 
-    public ArticleController(AbstractModel model) {
-        super(model);
+    public ArticleController(Article model) {
     }
 }

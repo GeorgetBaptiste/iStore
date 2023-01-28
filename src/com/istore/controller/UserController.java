@@ -1,10 +1,9 @@
 package com.istore.controller;
 
-import com.istore.model.AbstractModel;
+import com.istore.model.User;
 
-public class UserController extends AbstractController{
+public class UserController {
 
-    public UserController(AbstractModel model) {
-        super(model);
+    public UserController(User model) {
     }
 }

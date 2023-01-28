@@ -1,10 +1,9 @@
 package com.istore.controller;
 
-import com.istore.model.AbstractModel;
+import com.istore.model.Role;
 
-public class RoleController extends AbstractController{
+public class RoleController {
 
-    public RoleController(AbstractModel model) {
-        super(model);
+    public RoleController(Role model) {
     }
 }

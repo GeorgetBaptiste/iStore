@@ -1,17 +1,16 @@
 package com.istore.view;
 
-import com.istore.controller.AbstractController;
 import com.istore.controller.WhitelistController;
 import com.istore.observer.Observer;
 
 import javax.swing.*;
-import java.awt.event.ActionListener;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class WhiteListView implements Observer {
     private JTable whitelistTable;
     private JButton button1;
-    private JPanel panel1;
+    private JPanel mainPanel;
     private JButton button2;
     private JButton button3;
     private JPanel whitelistPanel;
@@ -20,12 +19,16 @@ public class WhiteListView implements Observer {
     public WhiteListView(WhitelistController controller) {
         this.controller = controller;
         button1.addActionListener(e ->  {
-            this.controller.add();
+            try {
+                this.controller.add();
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
         });
     }
 
     public JPanel getWhitelistPanel() {
-        return whitelistPanel;
+        return mainPanel;
     }
 
     public void update(ResultSet resultSet) {
