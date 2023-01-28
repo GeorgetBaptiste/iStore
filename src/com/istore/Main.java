@@ -13,16 +13,13 @@ public class Main {
     public static void main(String[] args) {
         // Database connection
         Connection conn = new DatabaseConnection().getConnection();
-
         // Models
         User user = new User(conn);
         WhiteList whiteList = new WhiteList(conn);
-
         // Controllers
         UserController userController = new UserController(user);
         WhitelistController whitelistController = new WhitelistController(whiteList);
-
         // View
-        new AuthenticationView(userController, whitelistController);
+        new AuthenticationView(userController, whitelistController, user, whiteList, conn);
     }
 }

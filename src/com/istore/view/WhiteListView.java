@@ -23,7 +23,7 @@ public class WhiteListView implements Observer {
         });
     }
 
-    public JPanel getWhitelistPanel() {
+    public JPanel getMainPanel() {
         return mainPanel;
     }
 

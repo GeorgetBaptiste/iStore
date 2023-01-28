@@ -29,6 +29,13 @@ public class User extends AbstractModel {
         return statement.executeQuery();
     }
 
+    public ResultSet selectById(int user_id) throws SQLException {
+        String sql = "SELECT * FROM user WHERE id=?";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setInt(1, user_id);
+        return statement.executeQuery();
+    }
+
     public void delete(int user_id) throws SQLException {
         String sql = "DELETE FROM user WHERE id=?";
         PreparedStatement statement = conn.prepareStatement(sql);

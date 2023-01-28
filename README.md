@@ -1,17 +1,17 @@
 # Base de donnée
 ![Schéma BDD](/schema.png "Schéma BDD")
-- [ ] Validation du schéma
-- [ ] Création de la base de donnée
-- [ ] Création du premier utilisateur admin
+- [x] Validation du schéma
+- [x] Création de la base de donnée
+- [x] Création du premier utilisateur admin
 
 # Fenêtre d'authentification 
 Page avec un formulaire de connexion et un formulaire d'inscription.
 - [x] La page d'authentification doit s'ouvrir au lancement de l'app
 - [x] Formulaire de connexion (email, mot de passe)
 - [x] Formulaire d'inscription (pseudo, email, mot de passe)
-- [ ] Pour créer un compte avec succès, l'e-mail doit être "sur liste blanche"
-- [ ] Le mot de passe doit être haché
-- [ ] Afficher erreurs de connexion ou d'inscription
+- [x] Pour créer un compte avec succès, l'e-mail doit être "sur liste blanche"
+- [x] Le mot de passe doit être haché
+- [x] Afficher erreurs de connexion ou d'inscription
 
 # Fenêtre de l'application
 
