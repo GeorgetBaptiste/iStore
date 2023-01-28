@@ -9,7 +9,6 @@ import com.istore.observer.Observable;
 import com.istore.observer.Observer;
 
 public abstract class AbstractModel implements Observable {
-    protected Connection conn = new DatabaseConnection().getConnection();
     private ArrayList<Observer> listObserver = new ArrayList<>();
 
     public void addObserver(Observer obs) {

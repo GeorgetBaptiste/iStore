@@ -1,11 +1,13 @@
 package com.istore.model;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class Role extends AbstractModel {
+    private final Connection conn;
+
+    public Role(Connection conn) {
+        this.conn = conn;
+    }
 
     public ResultSet select() throws SQLException {
         String sql = "SELECT * FROM role";

@@ -19,11 +19,7 @@ public class WhiteListView implements Observer {
     public WhiteListView(WhitelistController controller) {
         this.controller = controller;
         button1.addActionListener(e ->  {
-            try {
-                this.controller.add();
-            } catch (SQLException ex) {
-                throw new RuntimeException(ex);
-            }
+
         });
     }
 

@@ -1,11 +1,15 @@
 package com.istore.model;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import com.istore.DatabaseConnection;
+
+import java.sql.*;
 
 public class Article extends AbstractModel {
+    private final Connection conn;
+
+    public Article(Connection conn) {
+        this.conn = conn;
+    }
 
     public ResultSet select() throws SQLException {
         String sql = "SELECT * FROM article";

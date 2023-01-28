@@ -1,10 +1,16 @@
 package com.istore.model;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Inventory extends AbstractModel {
+    private final Connection conn;
+
+    public Inventory(Connection conn) {
+        this.conn = conn;
+    }
 
     public ResultSet select(int store_id) throws SQLException {
         String sql = "SELECT * FROM store_article WHERE store_id=?";
@@ -14,7 +20,7 @@ public class Inventory extends AbstractModel {
     }
 
     public void delete(int store_id, int article_id) throws SQLException {
-        String sql = "DELETE FROM store_article WHERE store_id=?, article_id=?";
+        String sql = "DELETE FROM store_article WHERE store_id=? AND article_id=?";
         PreparedStatement statement = conn.prepareStatement(sql);
         statement.setInt(1, store_id);
         statement.setInt(2, article_id);

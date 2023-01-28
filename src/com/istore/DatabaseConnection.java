@@ -3,7 +3,7 @@ package com.istore;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class DatabaseConnection {
+public class  DatabaseConnection {
     private Connection conn ;
 
     public DatabaseConnection() {
@@ -18,9 +18,5 @@ public class DatabaseConnection {
 
     public Connection getConnection() {
         return conn;
-    }
-
-    public static void main(String[] args) {
-        new DatabaseConnection();
     }
 }

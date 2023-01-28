@@ -1,11 +1,13 @@
 package com.istore.model;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class Store extends AbstractModel {
+    private final Connection conn;
+
+    public Store(Connection conn) {
+        this.conn = conn;
+    }
 
     public ResultSet select() throws SQLException {
         String sql = "SELECT * FROM store";

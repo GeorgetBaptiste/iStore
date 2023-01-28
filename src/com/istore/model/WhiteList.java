@@ -1,16 +1,27 @@
 package com.istore.model;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import com.istore.controller.WhitelistController;
+
+import java.sql.*;
 
 public class WhiteList extends AbstractModel {
+    private final Connection conn;
+
+    public WhiteList(Connection conn) {
+        this.conn = conn;
+    }
 
     public ResultSet select() throws SQLException {
         String sql = "SELECT * FROM white_list";
         Statement statement = conn.createStatement();
         return statement.executeQuery(sql);
+    }
+
+    public ResultSet selectByEmail(String email) throws SQLException {
+        String sql = "SELECT * FROM white_list WHERE email=?";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setString(1, email);
+        return statement.executeQuery();
     }
 
     public void delete(int white_list_id) throws SQLException {
