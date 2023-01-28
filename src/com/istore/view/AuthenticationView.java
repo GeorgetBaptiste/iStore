@@ -2,15 +2,12 @@ package com.istore.view;
 
 import com.istore.controller.*;
 import com.istore.model.*;
-import com.istore.observer.Observer;
 
 import javax.swing.*;
 import java.awt.*;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Objects;
 
 public class AuthenticationView extends JFrame {
     private JPanel mainPanel;
@@ -25,8 +22,8 @@ public class AuthenticationView extends JFrame {
     private JLabel connectionInfo;
     private final UserController userController;
     private final WhitelistController whitelistController;
-    private WhiteList whiteList;
-    private User user;
+    private final WhiteList whiteList;
+    private final User user;
     private final Connection conn;
 
     public AuthenticationView(UserController userController, WhitelistController whitelistController, User user, WhiteList whiteList, Connection conn) {
@@ -56,7 +53,7 @@ public class AuthenticationView extends JFrame {
         setTitle("iStore : Authentication");
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
+        setLocation(700, 400);
         setContentPane(mainPanel);
         pack();
         setVisible(true);
@@ -82,7 +79,6 @@ public class AuthenticationView extends JFrame {
         int userId = userController.checkConnection(this.connectionEmail.getText(), this.connectionPassword.getPassword());
         if (userId != 0) {
             int roleId = userController.getRole(userId);
-            System.out.println(roleId);
             Inventory inventory = new Inventory(conn);
             InventoryController inventoryController = new InventoryController(inventory);
             InventoryView inventoryView = new InventoryView(userId, inventoryController);
@@ -106,7 +102,7 @@ public class AuthenticationView extends JFrame {
                 store.addObserver(storeView);
                 user.addObserver(userView);
                 whiteList.addObserver(whiteListView);
-                new AppView(whiteListView, articleView, employeeView, inventoryView, roleView, storeView, userView);
+                new AppView(whiteListView, articleView, roleView, storeView, userView);
             } else {
                 new AppView(employeeView, inventoryView);
             }

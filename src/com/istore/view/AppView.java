@@ -12,24 +12,22 @@ public class AppView extends JFrame {
         settings();
     }
 
-    public AppView(WhiteListView whiteListView, ArticleView articleView, EmployeeView employeeView, InventoryView inventoryView, RoleView roleView, StoreView storeView, UserView userView) {
+    public AppView(WhiteListView whiteListView, ArticleView articleView, RoleView roleView, StoreView storeView, UserView userView) {
         tabbedPane.add("White List", whiteListView.getMainPanel());
         tabbedPane.add("User List", userView.getMainPanel());
         tabbedPane.add("Store List", storeView.getMainPanel());
         tabbedPane.add("Article List", articleView.getMainPanel());
-        tabbedPane.add("Employee List", employeeView.getMainPanel());
-        tabbedPane.add("Inventory", inventoryView.getMainPanel());
         tabbedPane.add("Role List", roleView.getMainPanel());
         settings();
     }
 
     private void settings() {
         setTitle("iStore");
-        setResizable(true);
+        setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
+        setLocation(350, 200);
         setContentPane(mainPanel);
-        pack();
+        setSize(1280, 720);
         setVisible(true);
     }
 }

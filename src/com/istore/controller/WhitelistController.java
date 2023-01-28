@@ -16,4 +16,8 @@ public class WhitelistController {
         ResultSet result = model.selectByEmail(email);
         return result.next();
     }
+
+    public ResultSet select() throws SQLException {
+        return model.select();
+    }
 }
