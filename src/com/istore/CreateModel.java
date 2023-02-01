@@ -17,13 +17,13 @@ public class CreateModel {
         ResultSetMetaData metaData = rs.getMetaData();
         Vector<String> columnNames = new Vector<>();
         int columnCount = metaData.getColumnCount();
-        for (int column = 2; column <= columnCount; column++) {
+        for (int column = 1; column <= columnCount; column++) {
             columnNames.add(metaData.getColumnName(column));
         }
         Vector<Vector<Object>> data = new Vector<>();
         while (rs.next()) {
             Vector<Object> vector = new Vector<>();
-            for (int columnIndex = 2; columnIndex <= columnCount; columnIndex++) {
+            for (int columnIndex = 1; columnIndex <= columnCount; columnIndex++) {
                 vector.add(rs.getObject(columnIndex));
             }
             data.add(vector);

@@ -12,12 +12,11 @@ public class AppView extends JFrame {
         settings();
     }
 
-    public AppView(WhiteListView whiteListView, ArticleView articleView, RoleView roleView, StoreView storeView, UserView userView) {
+    public AppView(WhiteListView whiteListView, ArticleView articleView, StoreView storeView, UserView userView) {
         tabbedPane.add("White List", whiteListView.getMainPanel());
         tabbedPane.add("User List", userView.getMainPanel());
         tabbedPane.add("Store List", storeView.getMainPanel());
         tabbedPane.add("Article List", articleView.getMainPanel());
-        tabbedPane.add("Role List", roleView.getMainPanel());
         settings();
     }
 

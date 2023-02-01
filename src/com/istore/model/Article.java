@@ -1,7 +1,5 @@
 package com.istore.model;
 
-import com.istore.DatabaseConnection;
-
 import java.sql.*;
 
 public class Article extends AbstractModel {

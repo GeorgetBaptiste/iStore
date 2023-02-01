@@ -33,12 +33,38 @@ public class UserController {
     
     public void addRegistration(String email, String pseudo, char[] password) throws SQLException, NoSuchAlgorithmException {
         String hashPassword = new HashPassword(password).getHashPassword();
-        model.insertByRegistration(email, pseudo, hashPassword, 2);
+        model.insertWithoutStore(email, pseudo, hashPassword, 2);
     }
 
     public int getRole(int userId) throws SQLException {
         ResultSet result = model.selectById(userId);
         result.next();
         return result.getInt("role_id");
+    }
+
+    public ResultSet select() throws SQLException {
+        return model.select();
+    }
+
+    public void delete(int id) throws SQLException {
+        model.delete(id);
+    }
+
+    public void insert(String email, String pseudo, char[] password, String store) throws NoSuchAlgorithmException, SQLException {
+        String hashPassword = new HashPassword(password).getHashPassword();
+        if (!Objects.equals(store, "")) {
+            model.insert(email, pseudo, hashPassword, 2, store);
+        } else {
+            model.insertWithoutStore(email, pseudo, hashPassword, 2);
+        }
+    }
+
+    public void update(int id, String email, String pseudo, char[] password, String store) throws NoSuchAlgorithmException, SQLException {
+        String hashPassword = new HashPassword(password).getHashPassword();
+        if (!Objects.equals(store, "")) {
+            model.update(id, email, pseudo, hashPassword, 2, store);
+        } else {
+            model.updateWithoutStore(id, email, pseudo, hashPassword, 2);
+        }
     }
 }

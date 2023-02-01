@@ -1,7 +1,8 @@
 package com.istore.observer;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public interface Observer {
-    public void update(ResultSet resultSet);
+    void update(ResultSet resultSet) throws SQLException;
 }

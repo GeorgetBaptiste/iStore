@@ -87,22 +87,18 @@ public class AuthenticationView extends JFrame {
             user.addObserver(employeeView);
             if (roleId == 1) {
                 Article article = new Article(conn);
-                Role role = new Role(conn);
                 Store store = new Store(conn);
                 ArticleController articleController = new ArticleController(article);
-                RoleController roleController = new RoleController(role);
                 StoreController storeController = new StoreController(store);
                 ArticleView articleView = new ArticleView(articleController);
-                RoleView roleView = new RoleView(roleController);
                 StoreView storeView = new StoreView(storeController);
                 UserView userView = new UserView(userController);
                 WhiteListView whiteListView = new WhiteListView(whitelistController);
                 article.addObserver(articleView);
-                role.addObserver(roleView);
                 store.addObserver(storeView);
                 user.addObserver(userView);
                 whiteList.addObserver(whiteListView);
-                new AppView(whiteListView, articleView, roleView, storeView, userView);
+                new AppView(whiteListView, articleView, storeView, userView);
             } else {
                 new AppView(employeeView, inventoryView);
             }

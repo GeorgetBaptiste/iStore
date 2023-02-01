@@ -15,7 +15,6 @@ public class InventoryView implements Observer {
     private JScrollPane scrollPane;
     private JTable table;
     private JTextField stockField;
-    private JTextField quantityField;
     private int userId;
 
     public InventoryView(int userId, InventoryController inventoryController) {

@@ -1,7 +1,5 @@
 package com.istore.model;
 
-import com.istore.controller.WhitelistController;
-
 import java.sql.*;
 
 public class WhiteList extends AbstractModel {
