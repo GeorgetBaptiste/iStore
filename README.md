@@ -17,23 +17,19 @@ Page avec un formulaire de connexion et un formulaire d'inscription.
 
 ## Onglet qui liste les articles
 Page qui liste tous les articles.
-- [ ] CRUD article
-
-## Onglet qui liste les rôles
-Page qui liste tous les rôles.
-- [ ] CRUD rôle
+- [x] CRUD article
 
 ## Onglet qui liste les magasins
 Page qui liste tous les magasins existants.
-- [ ] CRUD magasin
+- [x] CRUD magasin
 
 ## Onglet qui liste les utilisateurs
 Page qui liste tous les utilisateurs existants.
-- [ ] CRUD utilisateur
+- [x] CRUD utilisateur
 
 ## Onglet qui liste les emails sur liste blanche
 Page qui liste tous les emails sur liste blanche.
-- [ ] CRUD liste blanche
+- [x] CRUD liste blanche
 
 ## Onglet qui liste les employés (du magasin courant)
 Page qui liste tous les employés du magasin
