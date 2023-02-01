@@ -8,6 +8,14 @@ import java.sql.ResultSet;
 
 public class UserView implements Observer {
     private JPanel mainPanel;
+    private JTextField emailField;
+    private JButton deleteButton;
+    private JButton updateButton;
+    private JButton createButton;
+    private JScrollPane scrollPane;
+    private JTable table;
+    private JTextField pseudoField;
+    private JTextField passwordField;
 
     public UserView(UserController userController) {
 

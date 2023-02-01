@@ -8,6 +8,12 @@ import java.sql.ResultSet;
 
 public class StoreView implements Observer {
     private JPanel mainPanel;
+    private JTextField storeField;
+    private JButton deleteButton;
+    private JButton updateButton;
+    private JButton createButton;
+    private JScrollPane scrollPane;
+    private JTable table;
 
     public StoreView(StoreController storeController) {
 

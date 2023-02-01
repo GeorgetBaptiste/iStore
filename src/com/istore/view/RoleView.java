@@ -8,6 +8,12 @@ import java.sql.ResultSet;
 
 public class RoleView implements Observer {
     private JPanel mainPanel;
+    private JTextField roleField;
+    private JButton deleteButton;
+    private JButton updateButton;
+    private JButton createButton;
+    private JScrollPane scrollPane;
+    private JTable table;
 
     public RoleView(RoleController roleController) {
 

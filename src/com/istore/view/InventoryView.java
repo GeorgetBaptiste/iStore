@@ -8,6 +8,14 @@ import java.sql.ResultSet;
 
 public class InventoryView implements Observer {
     private JPanel mainPanel;
+    private JTextField articleField;
+    private JButton deleteButton;
+    private JButton updateButton;
+    private JButton createButton;
+    private JScrollPane scrollPane;
+    private JTable table;
+    private JTextField stockField;
+    private JTextField quantityField;
     private int userId;
 
     public InventoryView(int userId, InventoryController inventoryController) {
