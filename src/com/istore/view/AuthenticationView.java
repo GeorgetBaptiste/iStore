@@ -79,12 +79,6 @@ public class AuthenticationView extends JFrame {
         int userId = userController.checkConnection(this.connectionEmail.getText(), this.connectionPassword.getPassword());
         if (userId != 0) {
             int roleId = userController.getRole(userId);
-            Inventory inventory = new Inventory(conn);
-            InventoryController inventoryController = new InventoryController(inventory);
-            InventoryView inventoryView = new InventoryView(userId, inventoryController);
-            EmployeeView employeeView = new EmployeeView(userId, userController);
-            inventory.addObserver(inventoryView);
-            user.addObserver(employeeView);
             if (roleId == 1) {
                 Article article = new Article(conn);
                 Store store = new Store(conn);
@@ -100,6 +94,12 @@ public class AuthenticationView extends JFrame {
                 whiteList.addObserver(whiteListView);
                 new AppView(whiteListView, articleView, storeView, userView);
             } else {
+                Inventory inventory = new Inventory(conn);
+                InventoryController inventoryController = new InventoryController(inventory);
+                InventoryView inventoryView = new InventoryView(userId, inventoryController);
+                EmployeeView employeeView = new EmployeeView(userId, userController);
+                inventory.addObserver(inventoryView);
+                user.addObserver(employeeView);
                 new AppView(employeeView, inventoryView);
             }
             setVisible(false);

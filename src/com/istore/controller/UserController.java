@@ -50,6 +50,11 @@ public class UserController {
         model.delete(id);
     }
 
+    public void deleteEmployee(int id) throws SQLException {
+        int store_id = model.getStoreId(id);
+        model.deleteEmployee(id, store_id);
+    }
+
     public void insert(String email, String pseudo, char[] password, String store) throws NoSuchAlgorithmException, SQLException {
         String hashPassword = new HashPassword(password).getHashPassword();
         if (!Objects.equals(store, "")) {
@@ -66,5 +71,15 @@ public class UserController {
         } else {
             model.updateWithoutStore(id, email, pseudo, hashPassword, 2);
         }
+    }
+
+    public void updateEmployee(int user_id, String pseudo, String email, char[] password) throws NoSuchAlgorithmException, SQLException {
+        String hashPassword = new HashPassword(password).getHashPassword();
+        model.updateEmployee(user_id, email, pseudo, hashPassword);
+    }
+
+    public ResultSet selectEmployee(int user_id) throws SQLException {
+        int store_id = model.getStoreId(user_id);
+        return model.selectEmployee(store_id);
     }
 }

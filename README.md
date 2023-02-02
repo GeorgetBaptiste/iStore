@@ -17,7 +17,7 @@ Page avec un formulaire de connexion et un formulaire d'inscription.
 
 ## Onglet qui liste les articles
 Page qui liste tous les articles.
-- [x] CRUD article
+- [x] CRUD article 
 
 ## Onglet qui liste les magasins
 Page qui liste tous les magasins existants.
@@ -37,4 +37,4 @@ Page qui liste tous les employés du magasin
 
 ## Onglet qui liste l'inventaire (du magasin courant)
 Page qui liste tous les articles dans l'inventaire du magasin.
-- [ ] CRUD inventaire (Employé : peut juste augmenter/diminuer le nombre d'articles)
+- [x] CRUD inventaire (Employé : peut juste augmenter/diminuer le nombre d'articles)

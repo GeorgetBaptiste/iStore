@@ -9,10 +9,26 @@ public class User extends AbstractModel {
         this.conn = conn;
     }
 
+    public int getStoreId(int user_id) throws SQLException {
+        String sql = "SELECT store_id FROM user WHERE id=?";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setInt(1, user_id);
+        ResultSet result = statement.executeQuery();
+        result.next();
+        return result.getInt("store_id");
+    }
+
     public ResultSet select() throws SQLException {
         String sql = "SELECT user.id, user.pseudo, user.email, role.name, store.name FROM user LEFT JOIN role ON role.id = user.role_id LEFT JOIN store ON store.id = user.store_id";
         Statement statement = conn.createStatement();
         return statement.executeQuery(sql);
+    }
+
+    public ResultSet selectEmployee(int store_id) throws SQLException {
+        String sql = "SELECT user.id, user.pseudo, user.email, role.name FROM user LEFT JOIN role ON role.id = user.role_id WHERE store_id=?";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setInt(1, store_id);
+        return statement.executeQuery();
     }
 
     public ResultSet selectByEmail(String email) throws SQLException {
@@ -35,6 +51,14 @@ public class User extends AbstractModel {
         statement.setInt(1, user_id);
         statement.executeUpdate();
         notifyObserver(select());
+    }
+
+    public void deleteEmployee(int user_id, int store_id) throws SQLException {
+        String sql = "DELETE FROM user WHERE id=?";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setInt(1, user_id);
+        statement.executeUpdate();
+        notifyObserver(selectEmployee(store_id));
     }
 
     public void update(int user_id, String email, String pseudo, String password, int role_id, String store) throws SQLException {
@@ -60,6 +84,17 @@ public class User extends AbstractModel {
         } else {
             updateWithoutStore(user_id, email, pseudo, password, 2);
         }
+    }
+
+    public void updateEmployee(int user_id, String email, String pseudo, String password) throws SQLException {
+        String sql = "UPDATE user SET email=?, pseudo=?, password=? WHERE id=?";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setString(1, email);
+        statement.setString(2, pseudo);
+        statement.setString(3, password);
+        statement.setInt(4, user_id);
+        statement.executeUpdate();
+        notifyObserver(selectEmployee(getStoreId(user_id)));
     }
 
     public void updateWithoutStore(int user_id, String email, String pseudo, String password, int role_id) throws SQLException {
